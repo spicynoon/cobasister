@@ -2,41 +2,44 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('https://equilibrium-backend-lqag4dnu5a-et.a.run.app/api/user/register', {
-            // const response = await fetch('http://localhost:5000/api/user/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username,
-                    email,
-                    password,
-                }),
-            });
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+        // const response = await fetch('https://equilibrium-backend-lqag4dnu5a-et.a.run.app/api/user/register', {
+      const response = await fetch('http://localhost:5000/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+        }),
+      });
 
-            if (response.ok) {
-                // Handle successful registration, e.g., redirect
-                navigate('/login'); // Navigate to login page on successful registration
-            } else {
-                const errorData = await response.json();
-                alert(`Registration failed: ${errorData.message}`);
-            }
-        } catch (error) {
-            console.error('Error registering:', error);
-            alert('Registration failed. Please try again.');
-        }
-    };
+      if (response.ok) {
+        const data = await response.json();
+        login(data.token);
+        navigate('/dashboard', { replace: true });
+      } else {
+        const errorData = await response.json();
+        alert(`Registration failed: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+      alert('Registration failed. Please try again.');
+    }
+  };
 
     return (
         <div className="flex flex-col min-h-screen justify-center mx-auto items-center bg-auth-bg">

@@ -2,43 +2,44 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-        try {
-            // const response = await fetch('https://equilibrium-backend-lqag4dnu5a-et.a.run.app/api/user/login', {
-            const response = await fetch('http://localhost:5000/api/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+    try {
+      // const response = await fetch('https://equilibrium-backend-lqag4dnu5a-et.a.run.app/api/user/login', {
+      const response = await fetch('http://localhost:5000/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-            if (response.ok) {
-                // Handle successful login, e.g., save token, redirect
-                const data = await response.json();
-                // Assuming you get a token back
-                localStorage.setItem('token', data.token);
-                navigate('/dashboard'); // Navigate to dashboard on successful login
-            } else {
-                const errorData = await response.json();
-                alert(`Login failed: ${errorData.message}`);
-            }
-        } catch (error) {
-            console.error('Error logging in:', error);
-            alert('Login failed. Please try again.');
-        }
-    };
+      if (response.ok) {
+        const data = await response.json();
+        login(data.token);
+        navigate('/dashboard', { replace: true }); // Navigate to dashboard on successful login
+      } else {
+        const errorData = await response.json();
+        alert(`Login failed: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('Login failed. Please try again.');
+    }
+  };
+
 
     return (
         <div className="flex flex-col min-h-screen justify-center mx-auto items-center bg-auth-bg">
