@@ -19,8 +19,8 @@ const Post: React.FC = () => {
         Lorem ipsum dolor sit amet consectetur. Odio neque tortor?
       </h3>
       <p className="mb-4">
-        Lorem ipsum dolor sit amet consectetur. Risus ultrices purus faucibus luctus
-        blandit euismod turpis...
+        Lorem ipsum dolor sit amet consectetur. Risus ultrices purus faucibus
+        luctus blandit euismod turpis...
       </p>
       <div className="flex justify-between items-center text-gray-500 text-sm">
         <button className="flex items-center space-x-1">

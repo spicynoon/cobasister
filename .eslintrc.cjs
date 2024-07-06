@@ -1,20 +1,18 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: [
-    'plugin:react/recommended',
-    'airbnb-typescript',
-    'plugin:prettier/recommended'
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
-  parserOptions: {
-    project: './tsconfig.json'
-  },
-  rules: {
-    'react/react-in-jsx-scope': 'off',
-    'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }]
-  },
-  settings: {
-    react: {
-      version: 'detect'
-    }
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 };
