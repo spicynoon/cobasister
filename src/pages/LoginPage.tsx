@@ -49,7 +49,7 @@ const Login = () => {
                         <p className="text-xs">Tempat berbagi pengetahuan</p>
                     </div>
                     <div>
-                        <form onSubmit={handleLogin} className="flex flex-col gap-y-2">
+                      <form onSubmit={handleLogin} className="flex flex-col gap-y-2">
                             <p className="text-sm mt-2">Masuk</p>
                             <Input
                                 className="rounded-full bg-white border-2 h-[45px] text-black ps-4"
