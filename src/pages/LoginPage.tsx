@@ -9,10 +9,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
-
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       // const response = await fetch('https://equilibrium-backend-lqag4dnu5a-et.a.run.app/api/user/login', {
       const response = await fetch('http://localhost:5000/api/user/login', {
@@ -25,7 +23,6 @@ const Login = () => {
           password,
         }),
       });
-
       if (response.ok) {
         const data = await response.json();
         login(data.token);
@@ -41,47 +38,47 @@ const Login = () => {
   };
 
 
-    return (
-        <div className="flex flex-col min-h-screen justify-center mx-auto items-center bg-auth-bg">
-            <div className="py-6  bg-ash max-w-[550px] rounded-xl px-5 md:px-20 md:mx-0 mx-7">
-                <div className=" text-white">
-                    <div className="flex flex-col justify-center items-center ">
-                        <h1 className="text-2xl md:text-4xl font-bold md:pb-1">Equilibrium</h1>
-                        <p className="text-xs">Tempat berbagi pengetahuan</p>
-                    </div>
-                    <div>
-                      <form onSubmit={handleLogin} className="flex flex-col gap-y-2">
-                            <p className="text-sm mt-2">Masuk</p>
-                            <Input
-                                className="rounded-full bg-white border-2 h-[45px] text-black ps-4"
-                                type="email"
-                                placeholder="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <Input
-                                className="rounded-full bg-white border-2 h-[45px] text-black ps-4"
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                            <div className="text-xs flex flex-col gap-y-2">
-                                <a href="/" className="text-equ-blue">Lupa Password?</a>
-                                <p>Baru di Equitor? <span><Link className="text-equ-blue" to="/register">Buat akun</Link></span></p>
-                            </div>
-                            <div className="flex flex-col justify-center text-xs items-center ">
-                              <p className="text-center text-gray-400 mb-3">Dengan melanjutkan, Anda menunjukkan bahwa Anda menyetujui Persyaratan Layanan dan Kebijakan Privasi Equilibrium.</p>
-                              <Button type="submit" className="px-16 py-6 rounded-full bg-blue-700 hover:bg-blue-600 max-w-[100px] font-bold">Masuk</Button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className="flex flex-col min-h-screen justify-center mx-auto items-center bg-auth-bg">
+      <div className="py-6  bg-ash max-w-[550px] rounded-xl px-5 md:px-20 md:mx-0 mx-7">
+        <div className=" text-white">
+          <div className="flex flex-col justify-center items-center ">
+            <h1 className="text-2xl md:text-4xl font-bold md:pb-1">Equilibrium</h1>
+            <p className="text-xs">Tempat berbagi pengetahuan</p>
+          </div>
+          <div>
+            <form onSubmit={handleLogin} className="flex flex-col gap-y-2">
+              <p className="text-sm mt-2">Masuk</p>
+              <Input
+                className="rounded-full bg-white border-2 h-[45px] text-black ps-4"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Input
+                className="rounded-full bg-white border-2 h-[45px] text-black ps-4"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div className="text-xs flex flex-col gap-y-2">
+                <a href="/" className="text-equ-blue">Lupa Password?</a>
+                <p>Baru di Equitor? <span><Link className="text-equ-blue" to="/register">Buat akun</Link></span></p>
+              </div>
+              <div className="flex flex-col justify-center text-xs items-center ">
+                <p className="text-center text-gray-400 mb-3">Dengan melanjutkan, Anda menunjukkan bahwa Anda menyetujui Persyaratan Layanan dan Kebijakan Privasi Equilibrium.</p>
+                <Button type="submit" className="px-16 py-6 rounded-full bg-blue-700 hover:bg-blue-600 max-w-[100px] font-bold">Masuk</Button>
+              </div>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Login;
