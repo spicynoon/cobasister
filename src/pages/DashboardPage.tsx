@@ -1,4 +1,3 @@
-// src/pages/DashboardPage.tsx
 import React from 'react';
 import Header from '../components/HeaderDashboard';
 import Post from '../components/PostDashboard';

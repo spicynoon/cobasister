@@ -1,8 +1,15 @@
 // src/components/Header.tsx
 import React from 'react';
-import { FaHome, FaTasks, FaBell, FaUser, FaFileAlt, FaPlusCircle } from 'react-icons/fa';
+import {
+  FaHome,
+  FaTasks,
+  FaBell,
+  FaUser,
+  FaFileAlt,
+  FaPlusCircle,
+} from 'react-icons/fa';
 import { BiSearch } from 'react-icons/bi';
-import { Button } from '../components/ui/button';  // pastikan path sesuai dengan struktur proyek Anda
+import { Button } from '../components/ui/button'; // pastikan path sesuai dengan struktur proyek Anda
 
 const Header: React.FC = () => {
   return (
@@ -23,12 +30,6 @@ const Header: React.FC = () => {
             <FaBell size={24} />
           </Button>
         </div>
-        <Button>
-          Submit
-        </Button>
-        <Button variant="ghost">
-          <FaPlusCircle size={24} />
-        </Button>
       </div>
       <div className="flex items-center space-x-4">
         <div className="relative">
@@ -37,7 +38,10 @@ const Header: React.FC = () => {
             placeholder="Search Equilibrium"
             className="border p-2 rounded-full pl-10 bg-gray-100"
           />
-          <BiSearch className="absolute left-3 top-2.5 text-gray-400" size={20} />
+          <BiSearch
+            className="absolute left-3 top-2.5 text-gray-400"
+            size={20}
+          />
         </div>
         <Button variant="ghost">
           <FaUser size={24} />
