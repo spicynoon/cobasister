@@ -9,11 +9,16 @@ import {
 } from 'react-icons/fa';
 import { BiSearch } from 'react-icons/bi';
 import { Button } from '../ui/button'; // pastikan path sesuai dengan struktur proyek Anda
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const Header: React.FC<{ onProfileClick: () => void }> = ({
+  
   onProfileClick,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -21,6 +26,11 @@ const Header: React.FC<{ onProfileClick: () => void }> = ({
 
   const handleSearch = () => {
     // Implement search logic here
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login', { replace: true });
   };
 
   return (
@@ -63,7 +73,7 @@ const Header: React.FC<{ onProfileClick: () => void }> = ({
         <Button variant="ghost" onClick={onProfileClick}>
           <FaUser size={24} />
         </Button>
-        <Button variant="ghost">
+        <Button onClick={handleLogout} variant="ghost">
           <FaSignOutAlt size={24} />
         </Button>
       </div>
