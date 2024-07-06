@@ -42,10 +42,10 @@ const Login = () => {
 
     return (
         <div className="flex flex-col min-h-screen justify-center mx-auto items-center bg-auth-bg">
-            <div className="py-6  bg-ash max-w-[550px] rounded-xl px-20">
+            <div className="py-6  bg-ash max-w-[550px] rounded-xl px-5 md:px-20 md:mx-0 mx-7">
                 <div className=" text-white">
                     <div className="flex flex-col justify-center items-center ">
-                        <h1 className="text-4xl font-bold pb-1">Equilibrium</h1>
+                        <h1 className="text-2xl md:text-4xl font-bold md:pb-1">Equilibrium</h1>
                         <p className="text-xs">Tempat berbagi pengetahuan</p>
                     </div>
                     <div>
@@ -67,15 +67,15 @@ const Login = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
-                            <Button type="submit" className="px-16 py-6 rounded-full bg-blue-700 hover:bg-blue-600 max-w-[100px] font-bold">Masuk</Button>
+                            <div className="text-xs flex flex-col gap-y-2">
+                                <a href="/" className="text-equ-blue">Lupa Password?</a>
+                                <p>Baru di Equitor? <span><Link className="text-equ-blue" to="/register">Buat akun</Link></span></p>
+                            </div>
+                            <div className="flex flex-col justify-center text-xs items-center ">
+                              <p className="text-center text-gray-400 mb-3">Dengan melanjutkan, Anda menunjukkan bahwa Anda menyetujui Persyaratan Layanan dan Kebijakan Privasi Equilibrium.</p>
+                              <Button type="submit" className="px-16 py-6 rounded-full bg-blue-700 hover:bg-blue-600 max-w-[100px] font-bold">Masuk</Button>
+                            </div>
                         </form>
-                        <div className="text-xs flex flex-col gap-y-2 py-3">
-                            <a href="/" className="text-equ-blue">Lupa Password?</a>
-                            <p>Baru di Equitor? <span><Link className="text-equ-blue" to="/register">Buat akun</Link></span></p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col justify-center text-xs mb-4 items-center ">
-                        <p className="text-center mb-4 text-gray-400">Dengan melanjutkan, Anda menunjukkan bahwa Anda menyetujui Persyaratan Layanan dan Kebijakan Privasi Equilibrium.</p>
                     </div>
                 </div>
             </div>
