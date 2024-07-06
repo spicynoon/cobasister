@@ -14,7 +14,9 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
           <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+          {/* <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />  */}
+          {/* di atas kode yang jadi, user gaakan bisa ke dashboard sebelum login, sementara yanun masih develop kita matiin */}
+          <Route path="/register" element={<RegisterPage />}/>
         </Routes>
       </Router>
     </AuthProvider>
