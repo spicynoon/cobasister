@@ -105,6 +105,6 @@ Key functions of Equilibrium include:
 ## Connect With Us
 
 - **Website:** [Visit our application](https://example.com/)
-- **Instagram Reels:** [Watch our videos](https://www.instagram.com/reel/C66MvcNShL_/?igsh=MXF0ajBwaTZoOXlmaA==)
+- **Instagram Reels:** [Watch our videos](https://www.instagram.com/reel/C7CYUxGRXTV/?igsh=aGI2bTIydWRla2Zq)
 
 Join us at Equilibrium to engage in meaningful discussions on gender equality and related topics!
