@@ -16,7 +16,7 @@ Equilibrium is a dedicated discussion platform focusing on gender-related issues
 [Equilibrium Proposal](https://github.com/spicynoon/equilibrium/blob/main/Sistem%20Terdistribusii%5B1%5D.pdf)
 
 ## Demo App
-[![Tonton videonya](https://static-cse.canva.com/blob/1612698/1600w-wK95f3XNRaM.jpg)](https://youtu.be/HHi-yALimoA)
+[![Tonton videonya](https://github.com/spicynoon/equilibrium/blob/main/public/Screenshot%202024-07-16%20210424.png)](https://youtu.be/HHi-yALimoA)
 
 ## Overview
 
