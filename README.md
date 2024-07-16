@@ -10,7 +10,7 @@ Equilibrium is a dedicated discussion platform focusing on gender-related issues
 | 2.  | Dimas Thariq Susanto   |1217050041|
 | 3.  | Vina Patricia          |1217050139|
 | 4.  | Yandiyan               |1217050144|
-| 5.  | Zuhad Harkasy Al-Hikam |            |
+| 5.  | Zuhad Harkasy Al-Hikam |1217050148|
 
 ## Our Proposal
 [Equilibrium Proposal](https://github.com/spicynoon/equilibrium/blob/main/Sistem%20Terdistribusii%5B1%5D.pdf)
